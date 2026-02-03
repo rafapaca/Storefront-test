@@ -3,146 +3,187 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Beautiful Butterfly Effect | Atlanta Luxe Event Stylist</title>
+    <title>The Beautiful Butterfly Effect | Luxe Event Curation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --magenta: #d11d7c;
+            --brand-purple: #702082; /* Your Signature Purple */
+            --luxe-magenta: #d11d7c;
             --gold: #c5a059;
-            --black: #1a1a1a;
+            --dark: #0f0f0f;
             --white: #ffffff;
-            --soft-pink: #fffafa;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Playfair Display', serif; color: var(--black); line-height: 1.6; background: var(--white); }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: var(--dark); line-height: 1.7; }
         
-        /* Typography */
-        h1, h2, h3 { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; }
-        p { font-family: 'Assistant', sans-serif; color: #555; }
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; text-transform: uppercase; letter-spacing: 3px; }
 
         /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .logo { font-size: 1.2rem; color: var(--magenta); font-weight: bold; }
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav a { text-decoration: none; color: var(--black); font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--magenta); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(112, 32, 130, 0.1); }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brand-purple); text-decoration: none; font-weight: bold; letter-spacing: 1px; }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--dark); font-size: 0.75rem; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--brand-purple); }
 
         /* Hero Section */
-        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; color: white; letter-spacing: 3px; }
+        .hero { height: 90vh; background: linear-gradient(rgba(45, 10, 53, 0.6), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .hero-content h1 { font-size: 4.5rem; margin-bottom: 10px; line-height: 1.1; }
+        .hero-content p { font-size: 1rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; color: var(--gold); }
 
-        /* Services Section */
-        .section-padding { padding: 100px 10%; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { color: var(--magenta); font-size: 2.5rem; }
+        /* Service Slides */
+        .container { padding: 100px 8%; }
+        .centered { text-align: center; max-width: 800px; margin: 0 auto 60px; }
+        .centered h2 { font-size: 3rem; margin-bottom: 20px; color: var(--brand-purple); }
         
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
-        .service-item { text-align: center; padding: 30px; border: 1px solid #eee; transition: 0.4s; }
-        .service-item:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .service-item i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { position: relative; overflow: hidden; height: 450px; border-radius: 5px; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+        .service-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: 0.5s; }
+        .service-card:hover img { transform: scale(1.1); }
+        .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(transparent, rgba(112, 32, 130, 0.9)); z-index: -1; }
+        .service-card h3 { color: var(--gold); margin-bottom: 10px; }
 
-        /* Contact Form */
-        .contact-container { background: var(--soft-pink); display: flex; flex-wrap: wrap; gap: 50px; padding: 80px 10%; }
-        .contact-info { flex: 1; min-width: 300px; }
-        .contact-form { flex: 2; min-width: 300px; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        /* The Process */
+        .process-section { background: var(--dark); color: white; padding: 100px 8%; text-align: center; }
+        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 60px; }
+        .step i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+
+        /* Inquiry Form */
+        .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 100px 8%; background: #fcfcfc; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; color: var(--brand-purple); }
+        input, select, textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 0; font-family: 'Montserrat'; }
         
-        input, textarea, select { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 4px; font-size: 1rem; }
-        .submit-btn { background: var(--magenta); color: white; border: none; padding: 15px 40px; cursor: pointer; text-transform: uppercase; font-weight: bold; width: 100%; transition: 0.3s; }
-        .submit-btn:hover { background: var(--black); }
+        .btn-luxe { background: var(--brand-purple); color: white; padding: 20px 40px; border: none; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; width: 100%; font-weight: bold; }
+        .btn-luxe:hover { background: var(--dark); color: var(--gold); }
 
-        footer { background: var(--black); color: white; padding: 50px 10%; text-align: center; }
-        .social-links a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold); }
+        footer { background: var(--dark); color: white; padding: 60px 8%; text-align: center; }
+        .social-icons a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--gold); }
 
-        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .contact-container { padding: 40px 5%; } }
+        @media (max-width: 850px) {
+            .contact-section { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav>
-        <div class="logo">BEAUTIFUL BUTTERFLY EFFECT</div>
-        <ul>
-            <li><a href="#about">The Vision</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Inquire</a></li>
+        <a href="#" class="logo-text">THE BEAUTIFUL BUTTERFLY EFFECT</a>
+        <ul class="nav-links">
+            <li><a href="#about">THE VISION</a></li>
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#contact">INQUIRE</a></li>
         </ul>
     </nav>
 
-    <section class="hero">
-        <p>L.A. STYLE • ATLANTA HEART</p>
-        <h1>Core Memory Specialist</h1>
-        <a href="#contact" class="submit-btn" style="width: auto; padding: 15px 50px; text-decoration: none;">Book the Vibe</a>
+    <header class="hero">
+        <div class="hero-content">
+            <p>Core Memory Specialist • ATL</p>
+            <h1>Artistry in Every Detail</h1>
+            <a href="#contact" class="btn-luxe" style="width: auto; text-decoration: none;">Secure Your Date</a>
+        </div>
+    </header>
+
+    <section id="about" class="container">
+        <div class="centered">
+            <h2 style="color: var(--brand-purple);">The Butterfly Transformation</h2>
+            <p>From the streets of L.A. to the heart of Atlanta, we bring a high-end, boutique approach to event styling. We don’t just decorate rooms; we curate immersive environments that spark joy and leave a lasting impression.</p>
+        </div>
     </section>
 
-    <section id="services" class="section-padding">
-        <div class="section-title">
-            <h2>Our Expertise</h2>
-            <p>Transforming ordinary spaces into extraordinary experiences.</p>
+    <section id="services" class="container" style="background: var(--blush);">
+        <div class="centered">
+            <h2>Our Signature Services</h2>
         </div>
         <div class="services-grid">
-            <div class="service-item">
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <h3>Balloon Styling</h3>
-                <p>Custom organic garlands, arches, and high-impact installations.</p>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80" alt="Balloons">
+                <h3>Balloon Architecture</h3>
+                <p>Organic garlands, ceiling swells, and structural backdrops designed to defy gravity and capture hearts.</p>
             </div>
-            <div class="service-item">
-                <i class="fa-solid fa-champagne-glasses"></i>
-                <h3>Event Curation</h3>
-                <p>Intimate dinner parties, casino nights, and boutique celebrations.</p>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80" alt="Sets">
+                <h3>Thematic Curation</h3>
+                <p>Concept-to-execution styling for Casino Nights, Space Odysseys, and high-fashion galas.</p>
             </div>
-            <div class="service-item">
-                <i class="fa-solid fa-camera-retro"></i>
-                <h3>Luxe Backdrops</h3>
-                <p>The perfect "Instagrammable" moments for your brand or party.</p>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80" alt="Tables">
+                <h3>Intimate Dining</h3>
+                <p>Luxe tablescapes and boutique dinner party styling that turns a meal into a masterpiece.</p>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-container">
-        <div class="contact-info">
-            <h2>Get In Touch</h2>
-            <p style="margin: 20px 0;">Ready to create a core memory? Fill out the inquiry form and our team will get back to you within 48 hours.</p>
-            <p><strong>Location:</strong> Atlanta, GA (Available for Travel)</p>
-            <p><strong>Email:</strong> thebeautifulbutterflyeffect@gmail.com</p>
-            <div class="social-links" style="margin-top: 30px; text-align: left;">
-                <a href="https://www.instagram.com/thebeautifulbutterflyeffect/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61575236828001"><i class="fa-brands fa-facebook"></i></a>
+    <section class="process-section">
+        <h2>The Experience</h2>
+        <div class="process-steps">
+            <div class="step">
+                <i class="fa-solid fa-comment-dots"></i>
+                <h4>01. Discovery</h4>
+                <p>A deep dive into your vision, mood board, and event goals.</p>
+            </div>
+            <div class="step">
+                <i class="fa-solid fa-compass-drafting"></i>
+                <h4>02. Design</h4>
+                <p>Detailed floor plans and color palette finalization.</p>
+            </div>
+            <div class="step">
+                <i class="fa-solid fa-wand-sparkles"></i>
+                <h4>03. Reveal</h4>
+                <p>On-site execution with our "white glove" setup service.</p>
             </div>
         </div>
+    </section>
 
-        <div class="contact-form">
-            <form action="https://formspree.io/f/YOUR_UNIQUE_ID" method="POST">
-                <label>Full Name</label>
-                <input type="text" name="name" placeholder="Name" required>
-                
-                <label>Email Address</label>
-                <input type="email" name="_replyto" placeholder="Email" required>
-                
-                <label>Event Type</label>
-                <select name="event-type">
-                    <option>Birthday Celebration</option>
-                    <option>Corporate Event</option>
-                    <option>Baby/Bridal Shower</option>
-                    <option>Other Luxe Event</option>
-                </select>
+    <section id="contact" class="contact-section">
+        <div>
+            <h2 style="margin-bottom: 20px;">Let's Begin</h2>
+            <p style="margin-bottom: 30px;">Every great event starts with a conversation. Fill out the form or reach out via social media to check availability for your date.</p>
+            <div class="social-icons" style="text-align: left;">
+                <a href="https://www.instagram.com/thebeautifulbutterflyeffect/"><i class="fa-brands fa-instagram" style="color: var(--brand-purple);"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575236828001"><i class="fa-brands fa-facebook" style="color: var(--brand-purple);"></i></a>
+            </div>
+            <p style="margin-top: 20px; font-weight: bold;">Atlanta, GA & Surrounding Areas</p>
+        </div>
 
-                <label>Event Date</label>
-                <input type="date" name="date">
-                
-                <label>Tell us about your vision</label>
-                <textarea name="message" rows="4" placeholder="How can we make your event magical?" required></textarea>
-                
-                <button type="submit" class="submit-btn">Send Inquiry</button>
+        <div class="form-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label>NAME</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>EMAIL</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>EVENT DATE</label>
+                    <input type="date" name="date">
+                </div>
+                <div class="form-group">
+                    <label>EVENT TYPE</label>
+                    <select name="type">
+                        <option>Birthday</option>
+                        <option>Corporate</option>
+                        <option>Shower</option>
+                        <option>Other Luxe Celebration</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>YOUR VISION</label>
+                    <textarea name="message" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn-luxe">Send Inquiry</button>
             </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 THE BEAUTIFUL BUTTERFLY EFFECT. ALL RIGHTS RESERVED.</p>
-        <p style="font-size: 0.8rem; margin-top: 10px; color: #888;">Crafting luxury moments from L.A. to Atlanta.</p>
+        <p>&copy; 2026 THE BEAUTIFUL BUTTERFLY EFFECT</p>
+        <p style="font-size: 0.7rem; color: #666; margin-top: 10px;">CORE MEMORY SPECIALIST • ATLANTA, GA</p>
     </footer>
 
 </body>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Beautiful Butterfly Effect | Balloon Stylist & Event Curator</title>
+    <style>
+        :root {
+            --primary-color: #d11d7c; /* Logo Magenta */
+            --accent-color: #d4af37;  /* Luxe Gold */
+            --text-dark: #333;
+            --bg-light: #fff5f8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        nav {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1530103043960-ef38714abb15?q=80&w=2069&auto=format&fit=crop'); /* Placeholder of balloons */
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 10%;
+            text-align: center;
+            background: var(--bg-light);
+        }
+
+        .about h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 80px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+        }
+
+        /* Gallery/Instagram Style */
+        .gallery {
+            padding: 40px 5%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .gallery { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">The Beautiful Butterfly Effect</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="https://www.instagram.com/thebeautifulbutterflyeffect/" target="_blank">Instagram</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <h1>Turning Tablescapes into Magic</h1>
+        <p>Atlanta's premier Balloon Stylist and Intimate Event Curator. We help you create core memories for a lifetime.</p>
+        <a href="#contact" class="btn">Inquire Now</a>
+    </header>
+
+    <section id="about" class="about">
+        <h2>L.A. Soul meets Atlanta Style</h2>
+        <p>Bringing high-end vibes from L.A. to Atlanta. We specialize in luxe details and unforgettable nights crafted with heart. Whether it's a "Casino Night in Space" or an intimate dinner, we turn balloons into showstoppers.</p>
+    </section>
+
+    <section id="services" class="services">
+        <div class="service-card">
+            <h3>Balloon Styling</h3>
+            <p>Custom installations from arches to organic flows that define your space.</p>
+        </div>
+        <div class="service-card">
+            <h3>Intimate Event Curation</h3>
+            <p>Boutique planning for your most precious gatherings and milestones.</p>
+        </div>
+        <div class="service-card">
+            <h3>Luxe Tablescapes</h3>
+            <p>Transforming ordinary dining into a magical, immersive experience.</p>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1000" alt="Balloon Decor 1">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80&w=1000" alt="Event Lighting">
+        <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80&w=1000" alt="Table Setting">
+    </section>
+
+    <footer>
+        <p>&copy; 2026 The Beautiful Butterfly Effect. Core Memory Specialist | Luxe Details.</p>
+        <p>Follow us on <a href="https://www.facebook.com/profile.php?id=61575236828001" style="color: var(--accent-color);">Facebook</a> and Instagram.</p>
+    </footer>
+
+</body>
+</html>

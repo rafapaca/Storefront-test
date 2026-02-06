@@ -3,188 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Beautiful Butterfly Effect | Luxe Event Curation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>The Beautiful Butterfly Effect | Luxe Event Design ATL</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
-            --brand-purple: #702082; /* Your Signature Purple */
-            --luxe-magenta: #d11d7c;
+            --primary-purple: #3d0a44; /* Deep, rich purple */
+            --accent-pink: #f8bbd0;    /* Soft blush pink */
             --gold: #c5a059;
-            --dark: #0f0f0f;
-            --white: #ffffff;
+            --off-white: #faf9f6;
+            --text-dark: #1a1a1a;
+            --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--white); color: var(--dark); line-height: 1.7; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; text-transform: uppercase; letter-spacing: 3px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--off-white); 
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(112, 32, 130, 0.1); }
-        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--brand-purple); text-decoration: none; font-weight: bold; letter-spacing: 1px; }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links a { text-decoration: none; color: var(--dark); font-size: 0.75rem; letter-spacing: 2px; font-weight: 600; transition: 0.3s; }
-        .nav-links a:hover { color: var(--brand-purple); }
+        h1, h2, h3, .brand-font { font-family: 'Playfair Display', serif; }
 
-        /* Hero Section */
-        .hero { height: 90vh; background: linear-gradient(rgba(45, 10, 53, 0.6), rgba(15, 15, 15, 0.7)), url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
-        .hero-content h1 { font-size: 4.5rem; margin-bottom: 10px; line-height: 1.1; }
-        .hero-content p { font-size: 1rem; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 40px; color: var(--gold); }
+        /* Navigation - Glassmorphism effect */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(250, 249, 246, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
 
-        /* Service Slides */
-        .container { padding: 100px 8%; }
-        .centered { text-align: center; max-width: 800px; margin: 0 auto 60px; }
-        .centered h2 { font-size: 3rem; margin-bottom: 20px; color: var(--brand-purple); }
-        
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { position: relative; overflow: hidden; height: 450px; border-radius: 5px; color: white; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
-        .service-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; transition: 0.5s; }
-        .service-card:hover img { transform: scale(1.1); }
-        .service-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 70%; background: linear-gradient(transparent, rgba(112, 32, 130, 0.9)); z-index: -1; }
-        .service-card h3 { color: var(--gold); margin-bottom: 10px; }
+        .logo { 
+            font-size: 1.4rem; 
+            font-weight: 700; 
+            color: var(--primary-purple); 
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-        /* The Process */
-        .process-section { background: var(--dark); color: white; padding: 100px 8%; text-align: center; }
-        .process-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 60px; }
-        .step i { font-size: 2.5rem; color: var(--gold); margin-bottom: 20px; }
+        .nav-links { display: flex; list-style: none; gap: 40px; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-size: 0.8rem; 
+            font-weight: 600; 
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            text-transform: uppercase;
+        }
+        .nav-links a:hover { color: var(--gold); }
 
-        /* Inquiry Form */
-        .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 100px 8%; background: #fcfcfc; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 8px; font-weight: 600; color: var(--brand-purple); }
-        input, select, textarea { width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 0; font-family: 'Montserrat'; }
-        
-        .btn-luxe { background: var(--brand-purple); color: white; padding: 20px 40px; border: none; text-transform: uppercase; letter-spacing: 3px; cursor: pointer; transition: 0.3s; width: 100%; font-weight: bold; }
-        .btn-luxe:hover { background: var(--dark); color: var(--gold); }
+        /* Hero Section - Split Layout */
+        .hero {
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            background: var(--primary-purple);
+            color: white;
+            padding-top: 80px;
+        }
 
-        footer { background: var(--dark); color: white; padding: 60px 8%; text-align: center; }
-        .social-icons a { color: white; font-size: 1.5rem; margin: 0 15px; transition: 0.3s; }
-        .social-icons a:hover { color: var(--gold); }
+        .hero-text { padding: 0 10%; position: relative; z-index: 2; }
+        .hero-text h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 20px; }
+        .hero-text p { font-size: 1.1rem; color: var(--accent-pink); margin-bottom: 40px; letter-spacing: 2px; }
 
-        @media (max-width: 850px) {
-            .contact-section { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.5rem; }
+        .hero-image {
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80') center/cover no-repeat;
+            position: relative;
+        }
+
+        /* Services - Staggered Grid */
+        .section-title { text-align: center; padding: 100px 5% 50px; }
+        .section-title h2 { font-size: 3rem; color: var(--primary-purple); }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 5% 100px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 40px;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .service-card img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .service-card:hover img { transform: scale(1.05); filter: brightness(0.6); }
+
+        .service-content { position: relative; z-index: 2; }
+        .service-content h3 { font-size: 2rem; margin-bottom: 10px; color: var(--accent-pink); }
+
+        /* The Vision Section */
+        .vision {
+            background: var(--accent-pink);
+            padding: 120px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .vision-text h2 { font-size: 3rem; margin-bottom: 30px; color: var(--primary-purple); }
+        .vision-img img { width: 100%; border-radius: 200px 200px 0 0; border: 10px solid white; }
+
+        /* Contact Form */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 100px 10%;
+            background: white;
+        }
+
+        .contact-info { background: var(--primary-purple); color: white; padding: 60px; }
+        .contact-form { padding: 60px; border: 1px solid #eee; }
+
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; color: var(--gold); }
+        input, select, textarea { 
+            width: 100%; padding: 15px; border: none; border-bottom: 1px solid #ccc; 
+            font-family: inherit; font-size: 1rem; transition: var(--transition);
+        }
+        input:focus { outline: none; border-bottom-color: var(--primary-purple); }
+
+        .btn-submit {
+            background: var(--primary-purple);
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        .btn-submit:hover { background: var(--gold); }
+
+        footer { background: #111; color: white; padding: 50px 5%; text-align: center; }
+        .socials { margin-bottom: 20px; }
+        .socials a { color: var(--accent-pink); font-size: 1.5rem; margin: 0 15px; text-decoration: none; }
+
+        @media (max-width: 900px) {
+            .hero, .vision, .contact-wrapper { grid-template-columns: 1fr; }
+            .hero-image { display: none; }
+            .nav-links { display: none; } /* Add a hamburger menu for production */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo-text">THE BEAUTIFUL BUTTERFLY EFFECT</a>
+        <a href="#" class="logo">The Beautiful Butterfly Effect</a>
         <ul class="nav-links">
-            <li><a href="#about">THE VISION</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#contact">INQUIRE</a></li>
+            <li><a href="#vision">The Vision</a></li>
+            <li><a href="#services">Design Services</a></li>
+            <li><a href="#contact">Inquiry</a></li>
         </ul>
     </nav>
 
     <header class="hero">
-        <div class="hero-content">
-            <p>Core Memory Specialist • ATL</p>
+        <div class="hero-text">
+            <p>CORE MEMORY SPECIALIST • ATLANTA</p>
             <h1>Artistry in Every Detail</h1>
-            <a href="#contact" class="btn-luxe" style="width: auto; text-decoration: none;">Secure Your Date</a>
+            <p style="color: white; opacity: 0.8;">Bespoke event curation for the moments that matter most.</p>
+            <br>
+            <a href="#contact" style="color: var(--gold); text-decoration: none; border-bottom: 2px solid var(--gold); padding-bottom: 5px; font-weight: bold; letter-spacing: 2px;">SECURE YOUR DATE</a>
         </div>
+        <div class="hero-image"></div>
     </header>
 
-    <section id="about" class="container">
-        <div class="centered">
-            <h2 style="color: var(--brand-purple);">The Butterfly Transformation</h2>
+    <section id="vision" class="vision">
+        <div class="vision-img">
+            <img src="https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80" alt="Luxury Event Design">
+        </div>
+        <div class="vision-text">
+            <h2>The Butterfly Transformation</h2>
             <p>From the streets of L.A. to the heart of Atlanta, we bring a high-end, boutique approach to event styling. We don’t just decorate rooms; we curate immersive environments that spark joy and leave a lasting impression.</p>
+            <p style="margin-top: 20px;">Whether it's the architectural flow of our <strong>custom balloon garlands</strong> or the delicate precision of our <strong>floral sculptures</strong>, we transform spaces into core memories.</p>
         </div>
     </section>
 
-    <section id="services" class="container" style="background: var(--blush);">
-        <div class="centered">
-            <h2>Our Signature Services</h2>
+    <section id="services">
+        <div class="section-title">
+            <h2>Our Signature Curations</h2>
         </div>
-        <div class="services-grid">
+        <div class="services-container">
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?q=80" alt="Balloons">
-                <h3>Balloon Architecture</h3>
-                <p>Organic garlands, ceiling swells, and structural backdrops designed to defy gravity and capture hearts.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80" alt="Sets">
-                <h3>Thematic Curation</h3>
-                <p>Concept-to-execution styling for Casino Nights, Space Odysseys, and high-fashion galas.</p>
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80" alt="Balloons">
+                <div class="service-content">
+                    <h3>Balloons</h3>
+                    <p>Organic architecture designed to gravity-defying perfection.</p>
+                </div>
             </div>
             <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80" alt="Tables">
-                <h3>Intimate Dining</h3>
-                <p>Luxe tablescapes and boutique dinner party styling that turns a meal into a masterpiece.</p>
+                <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?q=80" alt="Florals">
+                <div class="service-content">
+                    <h3>Florals</h3>
+                    <p>High-end blooms and bespoke arrangements for every season.</p>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <section class="process-section">
-        <h2>The Experience</h2>
-        <div class="process-steps">
-            <div class="step">
-                <i class="fa-solid fa-comment-dots"></i>
-                <h4>01. Discovery</h4>
-                <p>A deep dive into your vision, mood board, and event goals.</p>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?q=80" alt="Tablescapes">
+                <div class="service-content">
+                    <h3>Tablescapes</h3>
+                    <p>Intimate dining experiences with luxury linens and curated decor.</p>
+                </div>
             </div>
-            <div class="step">
-                <i class="fa-solid fa-compass-drafting"></i>
-                <h4>02. Design</h4>
-                <p>Detailed floor plans and color palette finalization.</p>
-            </div>
-            <div class="step">
-                <i class="fa-solid fa-wand-sparkles"></i>
-                <h4>03. Reveal</h4>
-                <p>On-site execution with our "white glove" setup service.</p>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80" alt="Drapery">
+                <div class="service-content">
+                    <h3>Drapery</h3>
+                    <p>Elegant fabric design to soften and elevate any venue.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <div>
-            <h2 style="margin-bottom: 20px;">Let's Begin</h2>
-            <p style="margin-bottom: 30px;">Every great event starts with a conversation. Fill out the form or reach out via social media to check availability for your date.</p>
-            <div class="social-icons" style="text-align: left;">
-                <a href="https://www.instagram.com/thebeautifulbutterflyeffect/"><i class="fa-brands fa-instagram" style="color: var(--brand-purple);"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=61575236828001"><i class="fa-brands fa-facebook" style="color: var(--brand-purple);"></i></a>
+    <section id="contact" class="contact-wrapper">
+        <div class="contact-info">
+            <h2 class="brand-font" style="font-size: 3rem; margin-bottom: 20px;">Let's Begin</h2>
+            <p style="opacity: 0.8; margin-bottom: 40px;">Serving Atlanta, GA & Surrounding Areas. We can't wait to hear your vision.</p>
+            
+            <div class="socials" style="text-align: left;">
+                <a href="https://www.instagram.com/thebeautifulbutterflyeffect/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61575236828001"><i class="fa-brands fa-facebook"></i></a>
             </div>
-            <p style="margin-top: 20px; font-weight: bold;">Atlanta, GA & Surrounding Areas</p>
+            
+            <p style="color: var(--gold); margin-top: 40px;">#TheButterflyEffectATL</p>
         </div>
 
-        <div class="form-container">
+        <div class="contact-form">
             <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                 <div class="form-group">
-                    <label>NAME</label>
-                    <input type="text" name="name" required>
+                    <label>Full Name</label>
+                    <input type="text" name="name" required placeholder="Jane Doe">
                 </div>
                 <div class="form-group">
-                    <label>EMAIL</label>
-                    <input type="email" name="email" required>
+                    <label>Email Address</label>
+                    <input type="email" name="email" required placeholder="jane@example.com">
                 </div>
                 <div class="form-group">
-                    <label>EVENT DATE</label>
-                    <input type="date" name="date">
-                </div>
-                <div class="form-group">
-                    <label>EVENT TYPE</label>
-                    <select name="type">
-                        <option>Birthday</option>
-                        <option>Corporate</option>
-                        <option>Shower</option>
-                        <option>Other Luxe Celebration</option>
+                    <label>Event Type</label>
+                    <select name="event_type">
+                        <option>Birthday Celebration</option>
+                        <option>Luxury Shower</option>
+                        <option>Corporate Event</option>
+                        <option>Micro Wedding</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>YOUR VISION</label>
-                    <textarea name="message" rows="5"></textarea>
+                    <label>Tell Us Your Vision</label>
+                    <textarea name="vision" rows="4" placeholder="Colors, themes, and dreams..."></textarea>
                 </div>
-                <button type="submit" class="btn-luxe">Send Inquiry</button>
+                <button type="submit" class="btn-submit">Submit Inquiry</button>
             </form>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 THE BEAUTIFUL BUTTERFLY EFFECT</p>
-        <p style="font-size: 0.7rem; color: #666; margin-top: 10px;">CORE MEMORY SPECIALIST • ATLANTA, GA</p>
+        <p style="font-size: 0.7rem; color: #555; margin-top: 10px; letter-spacing: 2px;">ATLANTA EVENT CURATOR</p>
     </footer>
+
+    <script>
+        // Smooth scroll validation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
